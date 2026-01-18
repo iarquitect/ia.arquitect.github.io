@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matías Villarruel | Arquitecto & Docente IA</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navegación Sticky Minimalista -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <a href="#home">MV</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Inicio</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Matías Villarruel</h1>
+            <p class="hero-subtitle">Arquitecto | Especialista en Inteligencia Artificial | Docente Universitario</p>
+            <p class="hero-description">Innovación arquitectónica a través del diseño paramétrico y la integración de tecnologías emergentes. Explorando las intersecciones entre arquitectura, inteligencia artificial y pedagogía.</p>
+        </div>
+    </section>
+
+    <!-- Portfolio Section con Sistema de Filtrado -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="container">
+            <!-- Sistema de Filtros -->
+            <div class="filter-controls">
+                <button class="filter-btn active" data-filter="all">
+                    <span>ALL</span>
+                </button>
+                <button class="filter-btn" data-filter="projects">
+                    <span>PROJECTS</span>
+                </button>
+                <button class="filter-btn" data-filter="teaching">
+                    <span>TEACHING</span>
+                </button>
+                <button class="filter-btn" data-filter="media">
+                    <span>MEDIA</span>
+                </button>
+            </div>
+
+            <!-- Grid Masonry de Tarjetas -->
+            <div class="portfolio-grid" id="portfolioGrid">
+                <!-- PROJECTS -->
+                <article class="portfolio-card" data-category="projects">
+                    <div class="card-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&q=80" alt="Arquitectura Paramétrica" class="card-image">
+                        <div class="card-overlay">
+                            <h3 class="card-title">Arquitectura Paramétrica Avanzada</h3>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Diseño Paramétrico</span>
+                        <h3 class="card-title-visible">Arquitectura Paramétrica Avanzada</h3>
+                        <span class="card-date">2024</span>
+                    </div>
+                </article>
+
+                <article class="portfolio-card" data-category="projects">
+                    <div class="card-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" alt="Proyecto IA" class="card-image">
+                        <div class="card-overlay">
+                            <h3 class="card-title">Integración IA en Proceso de Diseño</h3>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Inteligencia Artificial</span>
+                        <h3 class="card-title-visible">Integración IA en Proceso de Diseño</h3>
+                        <span class="card-date">2023</span>
+                    </div>
+                </article>
+
+                <!-- TEACHING -->
+                <article class="portfolio-card" data-category="teaching">
+                    <div class="card-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80" alt="Workshop IA" class="card-image">
+                        <div class="card-overlay">
+                            <h3 class="card-title">Workshop IA para Arquitectura</h3>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Workshop IA</span>
+                        <h3 class="card-title-visible">Workshop IA para Arquitectura</h3>
+                        <span class="card-date">2024</span>
+                    </div>
+                </article>
+
+                <article class="portfolio-card" data-category="projects">
+                    <div class="card-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=800&q=80" alt="Diseño Generativo" class="card-image">
+                        <div class="card-overlay">
+                            <h3 class="card-title">Sistemas Generativos en Arquitectura</h3>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Diseño Generativo</span>
+                        <h3 class="card-title-visible">Sistemas Generativos en Arquitectura</h3>
+                        <span class="card-date">2023</span>
+                    </div>
+                </article>
+
+                <article class="portfolio-card" data-category="teaching">
+                    <div class="card-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80" alt="Curso Universitario" class="card-image">
+                        <div class="card-overlay">
+                            <h3 class="card-title">Diseño Paramétrico y Computacional</h3>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Curso Universitario</span>
+                        <h3 class="card-title-visible">Diseño Paramétrico y Computacional</h3>
+                        <span class="card-date">2024</span>
+                    </div>
+                </article>
+
+                <!-- MEDIA -->
+                <article class="portfolio-card" data-category="media">
+                    <div class="card-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=800&q=80" alt="Video YouTube" class="card-image">
+                        <div class="card-overlay">
+                            <h3 class="card-title">El Futuro de la Arquitectura con IA</h3>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Video YouTube</span>
+                        <h3 class="card-title-visible">El Futuro de la Arquitectura con IA</h3>
+                        <span class="card-date">2024</span>
+                    </div>
+                </article>
+
+                <article class="portfolio-card" data-category="projects">
+                    <div class="card-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=800&q=80" alt="Proyecto Experimental" class="card-image">
+                        <div class="card-overlay">
+                            <h3 class="card-title">Experimentos en Morfología Digital</h3>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Experimental</span>
+                        <h3 class="card-title-visible">Experimentos en Morfología Digital</h3>
+                        <span class="card-date">2023</span>
+                    </div>
+                </article>
+
+                <article class="portfolio-card" data-category="teaching">
+                    <div class="card-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&q=80" alt="Masterclass" class="card-image">
+                        <div class="card-overlay">
+                            <h3 class="card-title">Masterclass: IA Generativa en Diseño</h3>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Masterclass</span>
+                        <h3 class="card-title-visible">Masterclass: IA Generativa en Diseño</h3>
+                        <span class="card-date">2023</span>
+                    </div>
+                </article>
+
+                <article class="portfolio-card" data-category="media">
+                    <div class="card-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&q=80" alt="Artículo" class="card-image">
+                        <div class="card-overlay">
+                            <h3 class="card-title">Arquitectura y Tecnología: Nuevas Fronteras</h3>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Artículo</span>
+                        <h3 class="card-title-visible">Arquitectura y Tecnología: Nuevas Fronteras</h3>
+                        <span class="card-date">2024</span>
+                    </div>
+                </article>
+
+                <article class="portfolio-card" data-category="projects">
+                    <div class="card-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800&q=80" alt="Instalación" class="card-image">
+                        <div class="card-overlay">
+                            <h3 class="card-title">Instalación Interactiva con IA</h3>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Instalación</span>
+                        <h3 class="card-title-visible">Instalación Interactiva con IA</h3>
+                        <span class="card-date">2024</span>
+                    </div>
+                </article>
+
+                <article class="portfolio-card" data-category="media">
+                    <div class="card-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1522881193457-37ae97c905bf?w=800&q=80" alt="Investigación" class="card-image">
+                        <div class="card-overlay">
+                            <h3 class="card-title">Investigación: Machine Learning en Arquitectura</h3>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Investigación</span>
+                        <h3 class="card-title-visible">Investigación: Machine Learning en Arquitectura</h3>
+                        <span class="card-date">2023</span>
+                    </div>
+                </article>
+
+                <article class="portfolio-card" data-category="teaching">
+                    <div class="card-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80" alt="Taller" class="card-image">
+                        <div class="card-overlay">
+                            <h3 class="card-title">Taller de Diseño Computacional</h3>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">Taller</span>
+                        <h3 class="card-title-visible">Taller de Diseño Computacional</h3>
+                        <span class="card-date">2024</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto Section -->
+    <section id="contacto" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+            <div class="contact-content">
+                <p class="contact-text">Para colaboraciones, consultas o más información sobre proyectos y enseñanza.</p>
+                <div class="contact-links">
+                    <a href="mailto:contacto@matiasvillarruel.com" class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email</span>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" class="contact-link">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://github.com" target="_blank" class="contact-link">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Matías Villarruel. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
