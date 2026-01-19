@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (targetElement) {
                 // Calcular la posición considerando la altura del header sticky
-                const headerOffset = 80;
+                const headerOffset = 100;
                 const elementPosition = targetElement.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -120,11 +120,11 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', () => {
         const currentScroll = window.pageYOffset;
         
-        // Agregar sombra al header cuando se hace scroll
+        // Agregar fondo más opaco al header cuando se hace scroll
         if (currentScroll > 50) {
-            header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.3)';
+            header.style.backgroundColor = 'rgba(5, 5, 5, 0.95)';
         } else {
-            header.style.boxShadow = 'none';
+            header.style.backgroundColor = 'rgba(5, 5, 5, 0.8)';
         }
         
         lastScroll = currentScroll;
