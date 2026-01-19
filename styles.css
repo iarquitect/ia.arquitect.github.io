@@ -179,6 +179,24 @@ a {
 }
 
 /* ============================================
+   ABOUT SECTION
+   ============================================ */
+.about-section {
+    padding: var(--spacing-xl) var(--spacing-md);
+    background-color: var(--bg-secondary);
+    text-align: center;
+}
+
+.about-text {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: var(--text-secondary);
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+    font-weight: 300;
+}
+
+/* ============================================
    PORTFOLIO SECTION
    ============================================ */
 .portfolio-section {
@@ -329,6 +347,14 @@ a {
     color: var(--text-primary);
     font-weight: 500;
     margin: var(--spacing-xs) 0;
+}
+
+.card-subtitle {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+    margin-top: var(--spacing-xs);
+    font-style: italic;
 }
 
 .card-date {
