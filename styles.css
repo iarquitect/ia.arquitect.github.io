@@ -247,9 +247,9 @@ a {
 /* Grid Masonry Layout */
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: var(--spacing-md);
-    grid-auto-rows: 10px; /* Controla la altura base de las filas para masonry */
+    grid-auto-rows: auto;
 }
 
 /* Tarjetas del Portfolio */
@@ -263,6 +263,7 @@ a {
     cursor: pointer;
     display: flex;
     flex-direction: column;
+    min-height: 400px;
 }
 
 .portfolio-card:hover {
@@ -284,6 +285,7 @@ a {
 .card-image-wrapper {
     position: relative;
     width: 100%;
+    min-height: 280px;
     height: 280px;
     overflow: hidden;
     background-color: var(--bg-secondary);
@@ -291,8 +293,11 @@ a {
 
 .card-image {
     width: 100%;
+    min-height: 250px;
     height: 100%;
     object-fit: cover;
+    display: block;
+    background-color: #1a1a1a;
     transition: transform var(--transition-base);
 }
 
