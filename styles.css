@@ -444,7 +444,7 @@ a {
 
 .footer-copyright {
     font-size: 0.875rem;
-    color: var(--text-secondary);
+    color: #888;
     font-weight: 300;
     letter-spacing: 0.03em;
 }
