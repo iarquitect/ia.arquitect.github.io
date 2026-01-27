@@ -393,3 +393,11 @@ body {
     .footer-content { flex-direction: column; text-align: center; }
     .nav-menu { display: none; } /* En mobile habría que hacer un burger menu, pero por ahora lo oculto */
 }
+/* Corrección para links en tarjetas */
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
