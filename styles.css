@@ -58,13 +58,16 @@ body {
     max-width: 1400px;
 }
 
-.logo a {
-    font-family: var(--font-sans);
-    font-weight: 700;
-    font-size: 1.2rem;
-    color: white;
-    text-decoration: none;
-    letter-spacing: 1px;
+/* ESTILOS DEL LOGO */
+.nav-logo-img {
+    height: 50px; /* Tamaño controlado del logo */
+    width: auto;
+    display: block;
+    transition: opacity 0.3s;
+}
+
+.nav-logo-img:hover {
+    opacity: 0.8;
 }
 
 .nav-menu {
@@ -138,22 +141,34 @@ body {
     padding: 0 20px;
 }
 
+/* Título Principal (IA + Arquitectura) */
 .hero-title {
     font-family: var(--font-serif);
-    font-size: 4rem;
+    font-size: 5rem; /* Más grande */
     font-weight: 400;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    line-height: 1.1;
 }
 
 .hero-title .italic {
     font-style: italic;
+    color: white; /* Blanco puro */
+}
+
+/* Nombre (Matías Villarruel) */
+.hero-name {
+    font-family: var(--font-sans);
+    font-size: 1.5rem;
+    font-weight: 300;
     color: #ccc;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
 }
 
 .hero-subtitle {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: var(--accent-color);
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     text-transform: uppercase;
     margin-top: 10px;
 }
@@ -219,10 +234,10 @@ body {
     position: relative;
     cursor: pointer;
     overflow: hidden;
-    aspect-ratio: 16/10; /* Formato panorámico */
+    aspect-ratio: 16/10;
 }
 
-/* Tarjeta ancha para destacados */
+/* Tarjeta ancha */
 .portfolio-card.wide {
     grid-column: span 2;
 }
@@ -231,6 +246,15 @@ body {
     .portfolio-card.wide {
         grid-column: span 1;
     }
+}
+
+/* Link Wrapper para que funcione el link */
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
 .card-image-wrapper {
@@ -349,72 +373,19 @@ body {
     color: #aaa;
 }
 
-/* FOOTER */
-.footer {
-    padding: 80px 20px;
-    border-top: 1px solid #1a1a1a;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 30px;
-}
-
-.footer-left p {
-    font-size: 0.9rem;
-    color: #666;
-}
-
-.footer-right {
-    display: flex;
-    gap: 30px;
-}
-
-.social-link {
-    color: white;
-    text-decoration: none;
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-    transition: opacity 0.3s;
-}
-
-.social-link:hover {
-    opacity: 0.6;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    .hero-title { font-size: 2.5rem; }
-    .portfolio-grid { grid-template-columns: 1fr; }
-    .portfolio-card.wide { grid-column: span 1; }
-    .footer-content { flex-direction: column; text-align: center; }
-    .nav-menu { display: none; } /* En mobile habría que hacer un burger menu, pero por ahora lo oculto */
-}
-/* Corrección para links en tarjetas */
-.card-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-    width: 100%;
-    height: 100%;
-}
-/* CONTACTO ESTILO 'BOX' (Reference Match) */
+/* CONTACTO ESTILO 'BOX' */
 .contact-section {
     padding: 100px 20px;
-    background-color: var(--bg-color); /* Asegura fondo negro */
+    background-color: var(--bg-color);
 }
 
 .contact-wrapper {
     display: grid;
-    grid-template-columns: 1fr 1.5fr; /* Izquierda más chica, Derecha (form) más grande */
+    grid-template-columns: 1fr 1.5fr;
     gap: 80px;
     margin-top: 60px;
 }
 
-/* Columna Izquierda */
 .contact-heading {
     font-family: var(--font-serif);
     font-size: 2.5rem;
@@ -459,7 +430,6 @@ body {
     color: #aaa;
 }
 
-/* Columna Derecha (Formulario) */
 .contact-form {
     display: flex;
     flex-direction: column;
@@ -488,25 +458,23 @@ body {
     font-family: var(--font-sans);
 }
 
-/* EL SECRETO DEL DISEÑO: Inputs Transparentes */
 .form-group input,
 .form-group textarea {
-    background-color: transparent; /* CLAVE: Quita el fondo blanco */
-    border: 1px solid #333;      /* Borde sutil gris oscuro */
-    border-radius: 4px;          /* Bordes apenas redondeados como la referencia */
+    background-color: transparent;
+    border: 1px solid #333;
+    border-radius: 4px;
     padding: 15px;
-    color: white;                /* Texto blanco al escribir */
+    color: white;
     font-family: var(--font-sans);
     font-size: 1rem;
     transition: all 0.3s ease;
 }
 
-/* Efecto al hacer clic (Focus) */
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #fff;          /* Borde se ilumina blanco */
-    background-color: rgba(255, 255, 255, 0.05); /* Sutil fondo grisáceo */
+    border-color: #fff;
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
 .submit-btn {
@@ -529,7 +497,43 @@ body {
     color: black;
 }
 
-/* Responsive Mobile */
+/* FOOTER */
+.footer {
+    padding: 80px 20px;
+    border-top: 1px solid #1a1a1a;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-left p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.footer-right {
+    display: flex;
+    gap: 30px;
+}
+
+.social-link {
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    transition: opacity 0.3s;
+}
+
+.social-link:hover {
+    opacity: 0.6;
+}
+
+/* RESPONSIVE */
 @media (max-width: 900px) {
     .contact-wrapper {
         grid-template-columns: 1fr;
@@ -538,4 +542,9 @@ body {
     .form-row {
         flex-direction: column;
     }
+    .hero-title { font-size: 3rem; }
+    .portfolio-grid { grid-template-columns: 1fr; }
+    .portfolio-card.wide { grid-column: span 1; }
+    .footer-content { flex-direction: column; text-align: center; }
+    .nav-menu { display: none; }
 }
