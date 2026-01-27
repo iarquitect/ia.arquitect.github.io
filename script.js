@@ -1,172 +1,70 @@
-/* ============================================
-   SISTEMA DE FILTRADO DINÁMICO
-   ============================================ */
-
-// Esperar a que el DOM esté completamente cargado
 document.addEventListener('DOMContentLoaded', () => {
-    // Referencias a elementos del DOM
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const portfolioCards = document.querySelectorAll('.portfolio-card');
-    const portfolioGrid = document.getElementById('portfolioGrid');
-
-    /**
-     * Función principal para filtrar las tarjetas según la categoría seleccionada
-     * @param {string} filterValue - Valor del filtro ('all', 'projects', 'teaching', 'media')
-     */
-    function filterCards(filterValue) {
-        // Recorrer todas las tarjetas y aplicar el filtro
-        portfolioCards.forEach(card => {
-            const cardCategory = card.getAttribute('data-category');
-            
-            // Si el filtro es 'all', mostrar todas las tarjetas
-            if (filterValue === 'all') {
-                showCard(card);
-            } 
-            // Si la categoría de la tarjeta coincide con el filtro, mostrarla
-            else if (cardCategory === filterValue) {
-                showCard(card);
-            } 
-            // Si no coincide, ocultar la tarjeta
-            else {
-                hideCard(card);
+    
+    // 1. INICIALIZAR PARTICLES.JS (Efecto Red Neuronal)
+    /* Asegúrate de que el div id="particles-js" exista en el HTML */
+    particlesJS("particles-js", {
+        "particles": {
+            "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+            "color": { "value": "#ffffff" },
+            "shape": { "type": "circle" },
+            "opacity": { "value": 0.2, "random": false },
+            "size": { "value": 2, "random": true },
+            "line_linked": {
+                "enable": true,
+                "distance": 150,
+                "color": "#ffffff",
+                "opacity": 0.1,
+                "width": 1
+            },
+            "move": { "enable": true, "speed": 1, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
+        },
+        "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+                "onhover": { "enable": true, "mode": "grab" },
+                "onclick": { "enable": true, "mode": "push" },
+                "resize": true
+            },
+            "modes": {
+                "grab": { "distance": 140, "line_linked": { "opacity": 0.3 } }
             }
-        });
-    }
+        },
+        "retina_detect": true
+    });
 
-    /**
-     * Función para ocultar una tarjeta con animación fade out
-     * @param {HTMLElement} card - Elemento de la tarjeta a ocultar
-     */
-    function hideCard(card) {
-        // Agregar clase 'hidden' para aplicar estilos CSS y animación
-        card.classList.add('hidden');
-    }
+    // 2. SISTEMA DE FILTRADO
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.portfolio-card');
 
-    /**
-     * Función para mostrar una tarjeta con animación fade in
-     * @param {HTMLElement} card - Elemento de la tarjeta a mostrar
-     */
-    function showCard(card) {
-        // Remover clase 'hidden' para mostrar la tarjeta con animación
-        card.classList.remove('hidden');
-    }
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remover clase active de todos
+            filterBtns.forEach(b => b.classList.remove('active'));
+            // Agregar al clickeado
+            btn.classList.add('active');
 
-    /**
-     * Función para actualizar el estado activo de los botones de filtro
-     * @param {HTMLElement} activeButton - Botón que debe estar activo
-     */
-    function updateActiveButton(activeButton) {
-        // Remover clase 'active' de todos los botones
-        filterButtons.forEach(btn => {
-            btn.classList.remove('active');
-        });
-        
-        // Agregar clase 'active' al botón seleccionado
-        activeButton.classList.add('active');
-    }
+            const filterValue = btn.getAttribute('data-filter');
 
-    // Agregar event listeners a cada botón de filtro
-    filterButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            // Obtener el valor del filtro desde el atributo data-filter
-            const filterValue = button.getAttribute('data-filter');
-            
-            // Actualizar el estado visual del botón activo
-            updateActiveButton(button);
-            
-            // Aplicar el filtro a las tarjetas
-            filterCards(filterValue);
+            cards.forEach(card => {
+                if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                    card.style.display = 'block';
+                    // Pequeña animación de entrada
+                    card.style.opacity = '0';
+                    setTimeout(() => card.style.opacity = '1', 50);
+                } else {
+                    card.style.display = 'none';
+                }
+            });
         });
     });
 
-    /* ============================================
-       SCROLL SMOOTH PARA NAVEGACIÓN
-       ============================================ */
-    
-    // Agregar smooth scroll a los enlaces de navegación
+    // 3. SCROLL SUAVE PARA LINKS INTERNOS
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            
-            // Si el href es solo '#', no hacer nada
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-                // Calcular la posición considerando la altura del header sticky
-                const headerOffset = 100;
-                const elementPosition = targetElement.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                // Scroll suave hacia el elemento
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-            }
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
         });
     });
-
-    /* ============================================
-       EFECTO HEADER AL SCROLLEAR
-       ============================================ */
-    
-    const header = document.querySelector('.header');
-    let lastScroll = 0;
-
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-        
-        // Agregar fondo más opaco al header cuando se hace scroll
-        if (currentScroll > 50) {
-            header.style.backgroundColor = 'rgba(5, 5, 5, 0.95)';
-        } else {
-            header.style.backgroundColor = 'rgba(5, 5, 5, 0.8)';
-        }
-        
-        lastScroll = currentScroll;
-    });
-
-    /* ============================================
-       ANIMACIONES AL HACER SCROLL (Intersection Observer)
-       ============================================ */
-    
-    // Configuración del Intersection Observer para animar elementos al entrar en vista
-    const observerOptions = {
-        threshold: 0.1, // Porcentaje del elemento que debe ser visible
-        rootMargin: '0px 0px -50px 0px' // Margen adicional para el cálculo
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Cuando el elemento entra en vista, agregar clase para animación
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-
-    // Observar todas las tarjetas del portfolio para animarlas al aparecer
-    portfolioCards.forEach(card => {
-        // Establecer estado inicial (invisible y ligeramente desplazado hacia abajo)
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        
-        // Observar cada tarjeta
-        observer.observe(card);
-    });
-
-    // Observar la sección de contacto
-    const contactSection = document.querySelector('.contact-section');
-    if (contactSection) {
-        contactSection.style.opacity = '0';
-        contactSection.style.transform = 'translateY(20px)';
-        contactSection.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(contactSection);
-    }
 });
