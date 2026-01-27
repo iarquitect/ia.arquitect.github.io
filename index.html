@@ -263,21 +263,41 @@
         </div>
     </section>
 
-    <footer id="contacto" class="footer">
-        <div class="container footer-content">
-            <div class="footer-left">
-                <p>&copy; 2026 Matías Villarruel <br> Arquitectura + Inteligencia Artificial</p>
-            </div>
-            <div class="footer-right">
-                <a href="https://www.linkedin.com/in/matías-villarruel" target="_blank" class="social-link">LINKEDIN</a>
-                <a href="https://www.instagram.com/ia.arquitect" target="_blank" class="social-link">INSTAGRAM</a>
-                <a href="https://www.behance.net/matasvillarr" target="_blank" class="social-link">BEHANCE</a>
-                <a href="mailto:iarquitectura4@gmail.com" class="social-link">EMAIL</a>
-            </div>
-        </div>
-    </footer>
+   <section id="contacto" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">CONTACTO</h2>
+            
+            <div class="contact-wrapper">
+                
+                <div class="contact-form-container">
+                    <p class="contact-intro">¿Tenés un proyecto en mente? Escribime directamente.</p>
+                    
+                    <form action="https://formspree.io/f/maqovypy" method="POST" class="contact-form">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="NOMBRE" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="EMAIL" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="MENSAJE" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">ENVIAR CONSULTA</button>
+                    </form>
+                </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script src="script.js"></script>
-</body>
+                <div class="contact-info">
+                    <div class="info-item">
+                        <h3>EMAIL</h3>
+                        <p>iarquitectura4@gmail.com</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>REDES</h3>
+                        <div class="contact-links-vertical">
+                            <a href="https://www.linkedin.com/in/matías-villarruel" target="_blank" class="text-link">LINKEDIN ↗</a>
+                            <a href="https://www.instagram.com/ia.arquitect" target="_blank" class="text-link">INSTAGRAM ↗</a>
+                            <a href="https://www.behance.net/matasvillarr" target="_blank" class="text-link">BEHANCE ↗</a>
+                        </div>
+                    </div>
+                </section>
 </html>
