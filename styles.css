@@ -401,3 +401,114 @@ body {
     width: 100%;
     height: 100%;
 }
+/* CONTACTO MODERNO */
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 80px;
+    margin-top: 60px;
+}
+
+.contact-intro {
+    font-size: 1.2rem;
+    color: #888;
+    margin-bottom: 40px;
+    font-family: var(--font-serif);
+    font-style: italic;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #333;
+    padding: 15px 0;
+    color: white;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-bottom-color: white;
+}
+
+.submit-btn {
+    background: white;
+    color: black;
+    border: none;
+    padding: 15px 40px;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    letter-spacing: 2px;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: all 0.3s;
+    margin-top: 20px;
+}
+
+.submit-btn:hover {
+    background: #ccc;
+    transform: translateY(-2px);
+}
+
+.contact-info {
+    border-left: 1px solid #222;
+    padding-left: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.info-item h3 {
+    font-size: 0.8rem;
+    color: #666;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.info-item p {
+    font-size: 1.1rem;
+    color: white;
+}
+
+.contact-links-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.text-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: opacity 0.3s;
+}
+
+.text-link:hover {
+    opacity: 0.6;
+}
+
+/* Responsive para celular */
+@media (max-width: 768px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    .contact-info {
+        border-left: none;
+        padding-left: 0;
+        border-top: 1px solid #222;
+        padding-top: 40px;
+    }
+}
